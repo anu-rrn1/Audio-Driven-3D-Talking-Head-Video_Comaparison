@@ -1,11 +1,22 @@
-# TinyPointTalk
+# Audio-Driven 3D Talking-Head Video
 
-Audio-driven 3D talking heads at laptop scale, inspired by PointTalk. Given a 3D face mesh of
+Audio-driven 3D talking heads at laptop scale, inspired by PointTalk [1]. Given a 3D face mesh of
 a person, a few photos of them and a speech recording, the system produces a video of a
 relightable 3D Gaussian head that speaks the audio.
 
-The core is a FLAME-based pipeline. An earlier, simpler single-video baseline is included
-for comparison; it shares the geometry and rendering code.
+The repository contains two pipelines:
+
+- **Video baseline (first version).** Learns one person from a single video of them
+  talking. It tracks 468 face landmarks in every frame, trains a small network to move the
+  lips from the audio, and renders the face with 3D Gaussians fitted to the video frames. It
+  works only for that person and that kind of recording.
+- **FLAME pipeline (improved version, the main model).** Starts from a 3D face mesh and a
+  few photos instead of a video. It fits the FLAME 3D head model to the person, learns
+  how lips move from 3D scans of many speakers (VOCASET), and renders a relightable 3D
+  Gaussian head. It works with new people and any speech recording.
+
+Both share the same geometry and rendering code. A side-by-side comparison is given in
+[From the video baseline to the FLAME pipeline](#from-the-video-baseline-to-the-flame-pipeline).
 
 ## Method overview
 
@@ -48,6 +59,22 @@ the geometry and an orthographic Gaussian renderer is fitted to the frames.
 | 04 | `04_train_audio2lip.py` | EdgeConv point encoder + BiGRU audio encoder + cross-attention fusion |
 | 05 | `05_fit_gaussians.py` | Mesh-rigged Gaussian splatting fitted to video frames |
 | 06 | `06_generate.py` | Audio-driven video with ground-truth comparison |
+
+### From the video baseline to the FLAME pipeline
+
+The video baseline came first and showed where a single-video approach runs out. The FLAME
+pipeline was built to address each of those limits:
+
+| Aspect | Video baseline | FLAME pipeline |
+|---|---|---|
+| Input | One video of the person | A 3D face mesh, 1-5 photos and any speech recording |
+| Face model | MediaPipe FaceMesh, 468 landmark vertices | FLAME parametric head model, registered to the identity mesh by non-rigid ICP |
+| Mouth geometry | Lip points bound to the coarse landmark mesh | Refined mouth region with mouth-cavity and teeth proxies; lip point cloud linked to the mesh by Laplacian editing |
+| Speech-motion data | Only the person's own video | VOCASET 3D scans of many speakers, compressed into a PCA-128 motion basis |
+| Audio model | BiGRU audio encoder + EdgeConv point encoder | wav2vec 2.0 features + Transformer with speaker style tokens, plus articulation-gain calibration |
+| Generalisation | Tied to the person and recording it was trained on | Evaluated on unseen speakers; works with new identities and new audio |
+| Camera and rendering | Orthographic Gaussian renderer | Perspective EWA splatting with mesh-rigged Gaussians and photometric pose refinement |
+| Appearance | Colours baked in from the video frames | Relightable: albedo × spherical-harmonics lighting recovered by inverse rendering |
 
 ## Repository layout
 
@@ -130,3 +157,10 @@ Each step writes its figures and metrics to `outputs/`.
 - The audio model is trained on 8 VOCASET speakers and under-articulates on unseen speakers.
 - Rendering runs on the CPU at 256 × 256 pixels (about 1 s per frame).
 - The video baseline result in `outputs/video_baseline/` comes from the synthetic cartoon video.
+
+## References
+
+[1] Y. Xie, T. Feng, X. Zhang, X. Luo, Z. Guo, W. Yu, H. Chang, F. Ma and F. R. Yu.
+    *PointTalk: Audio-Driven Dynamic Lip Point Cloud for 3D Gaussian-based Talking Head
+    Synthesis.* Proceedings of the AAAI Conference on Artificial Intelligence, 39(8),
+    8753-8761, 2025. [arXiv:2412.08504](https://arxiv.org/abs/2412.08504)
