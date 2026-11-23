@@ -1,7 +1,6 @@
-# Audio-Driven 3D Talking-Head Video
+# Audio-driven 3D talking head
 
-Audio-driven 3D talking heads at laptop scale, inspired by PointTalk [1]. Given a 3D face mesh of
-a person, a few photos of them and a speech recording, the system produces a video of a
+Given a 3D face mesh of a person, a few photos of them and a speech recording, the system produces a video of a
 relightable 3D Gaussian head that speaks the audio.
 
 The repository contains two pipelines:
@@ -33,32 +32,6 @@ Both share the same geometry and rendering code. A side-by-side comparison is gi
                                                         │
  speech audio ──────────────────────────────► 07 audio → 3D motion → rendered video
 ```
-
-| Step | Script (`scripts/flame_pipeline/`) | Techniques |
-|---|---|---|
-| 01 | `01_synthetic_inputs.py` | Synthetic identity with ground truth: random FLAME shape, procedural albedo, rendered photos |
-| 02 | `02_identity_geometry.py` | Similarity + non-rigid ICP registration, FLAME shape projection, Taubin smoothing, cotangent mean curvature, k-ring mouth region, conforming red-green refinement as a sparse operator, skinned mouth-cavity / teeth proxies |
-| 03 | `03_lip_pointcloud.py` | Identity-independent lip binding `P = B·V`, farthest-point sampling, PCA normals, k-NN graph, Laplacian editing for points → mesh |
-| 04a | `04a_vocaset_motion_basis.py` | Streaming randomized SVD over 123k VOCASET frames; PCA-128 displacement basis compared with FLAME expressions |
-| 04b | `04b_train_audio2motion.py` | wav2vec 2.0 features → Transformer encoder with speaker style tokens; vertex, lip, velocity and motion-spread losses; speed perturbation, time masking |
-| 04c | `04c_calibrate_articulation.py` | Post-hoc articulation gain calibrated on validation speakers |
-| 05 | `05_fit_photos.py` | Self-calibrated MediaPipe → FLAME landmark embedding, EPnP + robust landmark fitting, texture fusion, inverse rendering (albedo × SH lighting), leave-one-out evaluation |
-| 06 | `06_gaussian_avatar.py` | Mesh-rigged 3D Gaussians, perspective EWA splatting, differentiable tile rasterizer, relightable appearance, photometric pose refinement |
-| 07 | `07_generate_video.py` | End-to-end generation, jaw-angle recovery, CTC speech recognition for word-timed subtitles |
-
-### Video baseline
-
-The baseline learns a person from one video. MediaPipe FaceMesh (468 vertices) provides
-the geometry and an orthographic Gaussian renderer is fitted to the frames.
-
-| Step | Script (`scripts/video_baseline/`) | Techniques |
-|---|---|---|
-| 00 / 01 | `00_make_synthetic_video.py` / `01_extract_data.py` | Synthetic test video / landmark tracking and cropping |
-| 02 | `02_mesh_processing.py` | Canonical mesh (Umeyama alignment, Taubin smoothing), curvature, head-pose removal |
-| 03 | `03_pointcloud.py` | Mesh-bound lip point cloud, PCA normals, k-NN, FPS, Chamfer distance |
-| 04 | `04_train_audio2lip.py` | EdgeConv point encoder + BiGRU audio encoder + cross-attention fusion |
-| 05 | `05_fit_gaussians.py` | Mesh-rigged Gaussian splatting fitted to video frames |
-| 06 | `06_generate.py` | Audio-driven video with ground-truth comparison |
 
 ### From the video baseline to the FLAME pipeline
 
@@ -135,7 +108,7 @@ step 05 (`--photos <folder>`). Step 4b is best trained on a GPU with one of the 
 
 This project was built on a CPU-only laptop; only the Audio2Motion training of step 4b
 was run on a free Kaggle GPU. The current version is a working
-starting point, and I am improving it step by step against the evaluation parameters below.
+starting point, and I am trying to improve it step by step against the evaluation parameters below.
 
 Evaluation uses the synthetic identity of step 01 and the unseen VOCASET test speakers.
 Each step writes its figures and metrics to `outputs/`.
