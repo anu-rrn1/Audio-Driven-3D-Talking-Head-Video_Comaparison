@@ -123,6 +123,11 @@ Each step writes its figures and metrics to `outputs/`.
 | 07 Generation | LVE and lip-gap correlation with the recording on test-speaker sentences | Mean pose |
 | Video baseline | Lip error and mouth-opening correlation on held-out frames; frame reconstruction PSNR; mouth-crop PSNR | Zero motion; closed lips; tracked mesh |
 
+## Results
+
+All results come from the synthetic identity of step 01 and the unseen VOCASET test speakers.
+Figures and full metrics are in `outputs/`.
+
 ## Limitations
 
 - Evaluation of the photo and avatar steps uses a synthetic identity; real scans and photos
