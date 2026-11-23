@@ -1,0 +1,102 @@
+{
+  "photos": [
+    "photo_00.png",
+    "photo_01.png",
+    "photo_02.png",
+    "photo_03.png"
+  ],
+  "n_landmarks": 317,
+  "focal_assumed": 2.0,
+  "landmark_error_px": {
+    "per_photo": [
+      1.1744166612625122,
+      3.2335362434387207,
+      2.430111885070801,
+      1.8513453006744385
+    ],
+    "mean": 2.1723527908325195,
+    "pnp_init_mean": 3.8974270820617676
+  },
+  "landmark_nme_percent_iod": 1.6096177615066103,
+  "lip_landmark_error_px": 2.6983776092529297,
+  "lip_landmark_error_px_pnp_init": 6.5281243324279785,
+  "jaw_open_rad": [
+    0.013645688071846962,
+    0.1500646024942398,
+    0.05008215457201004,
+    0.08076202869415283
+  ],
+  "expr_norm": [
+    0.9922085404396057,
+    2.2550745010375977,
+    1.6256473064422607,
+    1.6427634954452515
+  ],
+  "texture": {
+    "vertices_covered": 0.6525057237344187,
+    "self_view_psnr": [
+      26.914844439166707,
+      26.01735144930588,
+      25.663482648936444,
+      24.876149220424576
+    ]
+  },
+  "leave_one_out_psnr": {
+    "albedo_sh": [
+      24.683272225299433,
+      23.7554255533546,
+      24.057408751150682,
+      22.268285023521926
+    ],
+    "albedo_sh_mean": 23.691097888331658,
+    "baked": [
+      22.226855070279715,
+      21.664469245362902,
+      18.271765837638146,
+      18.19917969514085
+    ],
+    "baked_mean": 20.090567462105405,
+    "note": "texture from the OTHER photos rendered into the held-out camera (face pixels with coverage). albedo_sh: albedo x SH lighting, 27 lighting params fitted on the held-out photo; baked: weighted colour average, 3 exposure gains fitted on the held-out photo"
+  },
+  "ground_truth": {
+    "rotation_error_deg": {
+      "per_photo": [
+        2.373843581400569,
+        4.6615712075689055,
+        2.617469899730658,
+        4.091775508453557
+      ],
+      "mean": 3.436165049288422
+    },
+    "step2_alignment": {
+      "scale": 0.9957691997274499,
+      "rot_deg": 0.5775509828594176,
+      "t_mm": [
+        -2.6139281565138497e-08,
+        2.601807322674223e-06,
+        5.706864858753887e-07
+      ]
+    },
+    "translation_error_mm": {
+      "per_photo": [
+        65.9049300382973,
+        43.96613584249067,
+        83.95374657160006,
+        65.8900462862546
+      ],
+      "mean": 64.92871468466066,
+      "note": "photos rendered with focal 2.2x size, fitter assumes 2.0x: depth absorbs the focal mismatch"
+    },
+    "lip_motion_error_mm": 2.485661344518046,
+    "lip_motion_error_mm_neutral_baseline": 6.846597418189049,
+    "jaw_open_gt_rad": [
+      0.0,
+      0.106500543653965,
+      0.09467874467372894,
+      0.12100248038768768
+    ],
+    "albedo_psnr_albedo_sh": 16.819129424188958,
+    "albedo_psnr_baked": 16.72852290885667
+  },
+  "seconds": 34.2084698677063
+}

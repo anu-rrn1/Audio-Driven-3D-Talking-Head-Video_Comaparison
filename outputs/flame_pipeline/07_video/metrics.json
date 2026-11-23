@@ -1,0 +1,29 @@
+{
+  "audio": "FaceTalk_170809_00138_TA sentences 2,7,1 (test speaker)",
+  "seconds": 10.460125,
+  "frames": 314,
+  "model": "outputs/flame_pipeline/04b_audio2motion_v1_better_lip_error/audio2motion.pt",
+  "articulation_gain": 1.62,
+  "lve_mm_without_gain": 5.7410623285096385,
+  "lve_mm": 5.594395842597966,
+  "lve_mean_pose_mm": 6.376231776051836,
+  "note": "LVE = max lip-vertex error per frame (speech frames only), vs PCA-128 reconstruction of the recorded scan",
+  "subtitles": [
+    "Don't ask me to carry an oily rag like that",
+    "Encyclopedias seldom present anecdotal evidence",
+    "She had your dark suit in greasy washwater all year"
+  ],
+  "jaw_angle_range_rad": [
+    -0.035,
+    0.08
+  ],
+  "lip_gap_mm": {
+    "pred_mean": 18.78900718688965,
+    "pred_std": 2.8844234943389893,
+    "gt_mean": 23.399219512939453,
+    "gt_std": 4.514124870300293,
+    "corr": 0.6376084863511664
+  },
+  "render_seconds_per_frame": 0.966547125084385,
+  "total_seconds": 653.3395686149597
+}

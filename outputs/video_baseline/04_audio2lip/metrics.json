@@ -1,0 +1,8 @@
+{
+  "best_epoch": 114,
+  "val_LVE_px": 0.314002126455307,
+  "baseline_zero_motion_LVE_px": 0.7752765417098999,
+  "baseline_mean_pose_LVE_px": 0.3399350941181183,
+  "mouth_opening_pearson_r": 0.8948164016312311,
+  "n_params": 125187
+}

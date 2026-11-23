@@ -1,0 +1,27 @@
+{
+  "raw": {
+    "n_vertices": 468,
+    "n_faces": 905,
+    "edge_len_mean": 3.405686276381913,
+    "edge_len_std": 1.1976260626593718,
+    "surface_area": 3878.5160729651643
+  },
+  "smoothed": {
+    "n_vertices": 468,
+    "n_faces": 905,
+    "edge_len_mean": 3.2733632738603826,
+    "edge_len_std": 0.9105005562395647,
+    "surface_area": 3772.739157758394
+  },
+  "mean_curvature_raw": 0.020263034093562733,
+  "mean_curvature_smoothed": 0.051263570484762065,
+  "reference_frames": [
+    28,
+    190,
+    241
+  ],
+  "region_vertices": 150,
+  "rigid_alignment_residual_px": 0.6214024989888436,
+  "lip_displacement_rms_px": 0.9661378071044572,
+  "open_scale": 0.1033637829641522
+}

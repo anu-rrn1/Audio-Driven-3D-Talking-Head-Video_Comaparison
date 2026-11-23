@@ -1,0 +1,21 @@
+{
+  "gt_mesh": {
+    "psnr_full": 38.176776591739554,
+    "ssim_full": 0.9949700236320496,
+    "psnr_mouth": 29.074961473445644,
+    "ssim_mouth": 0.9513738751411438
+  },
+  "ours_audio": {
+    "psnr_full": 30.82819205837244,
+    "ssim_full": 0.9753382802009583,
+    "psnr_mouth": 26.431287928542144,
+    "ssim_mouth": 0.9127374887466431
+  },
+  "neutral_lips": {
+    "psnr_full": 29.506441266265462,
+    "ssim_full": 0.967602550983429,
+    "psnr_mouth": 22.955650020932552,
+    "ssim_mouth": 0.8321506381034851
+  },
+  "note": "gt_mesh = upper bound (tracked GT mesh); ours_audio = lips predicted from audio only, GT head pose; neutral_lips = closed-mouth baseline (no audio)"
+}

@@ -1,0 +1,37 @@
+{
+  "n_gauss": 15000,
+  "iters": 400,
+  "res": 256,
+  "train": [
+    "photo_00.png",
+    "photo_01.png",
+    "photo_02.png"
+  ],
+  "holdout": [
+    "photo_03.png"
+  ],
+  "final_train_loss": 0.012315085530281067,
+  "holdout_photo_03.png": {
+    "mesh_albedo_sh_psnr": 25.440408341963767,
+    "mesh_albedo_sh_ssim": 0.9534623622894287,
+    "gaussian_psnr": 27.427430144278432,
+    "gaussian_ssim": 0.9559797644615173,
+    "eval_pixels": 19595,
+    "note": "camera/expression from step-5 landmarks, only SH lighting fitted; face pixels covered by training photos"
+  },
+  "pose_refinement_rotation_error_deg": {
+    "photo_00.png": {
+      "step5_landmarks": 2.373843581400569,
+      "after_photometric": 2.2510381812606517
+    },
+    "photo_01.png": {
+      "step5_landmarks": 4.6615712075689055,
+      "after_photometric": 4.364768772763558
+    },
+    "photo_02.png": {
+      "step5_landmarks": 2.617469899730658,
+      "after_photometric": 2.5357043993701205
+    }
+  },
+  "seconds": 1112.0753996372223
+}

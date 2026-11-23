@@ -1,0 +1,65 @@
+device: auto                    # auto | cpu | cuda
+
+# FLAME pipeline (scripts/flame_pipeline)
+flame:
+  dir: data/flame               # generic_model.pkl (+ optional FLAME_masks.pkl)
+  n_shape: 100
+  n_expr: 50
+
+identity:
+  mesh: data/identity/face.obj  # identity mesh, any topology (OBJ; PLY/STL need trimesh)
+  landmarks: null               # optional [L, 3] landmarks on the mesh (txt/npy)
+  offset_smooth_iters: 5        # Taubin smoothing of the offset field
+  registration:
+    stiffness: [50, 20, 8, 3, 1]
+    inner: 4
+    min_cos: 0.5
+
+mouth:
+  ring_hops: 4                  # lip region grown by this many edge hops
+  refine: true                  # red-green refinement of the mouth region
+  cavity_depth: 0.6             # times the inner-lip width
+  teeth_depth: 0.12
+
+lip_cloud:
+  n_points: 512                 # points after farthest-point sampling
+  n_candidates: 4000            # dense surface samples before sampling
+  knn: 16
+  deform_w: 10.0                # handle weight of the Laplacian points -> mesh solve
+
+# Video baseline (scripts/video_baseline)
+data:
+  video: data/raw/video.mp4     # 30-90 s, one person, frontal, head mostly still
+  fps: 25
+  max_seconds: 60
+  img_size: 128                 # working resolution
+  crop_scale: 1.5               # crop side = crop_scale * face bbox side
+  val_ratio: 0.2                # last 20% of the video is held out
+
+mesh:
+  n_reference_frames: 3
+  taubin_iters: 10
+  region_k: 150                 # vertices in the mouth region
+points:
+  n_points: 256                 # region vertices + surface samples
+  knn: 12
+
+audio:
+  feature: mfcc                 # mfcc | wav2vec2
+  sr: 16000
+  context: 6                    # +-6 frames (13 frames ~ 0.5 s)
+
+train:
+  epochs: 120
+  batch_size: 32
+  lr: 0.002
+  weight_decay: 0.0001
+  dim: 64
+  noise: 0.05
+  smooth_sigma: 1.0             # temporal smoothing at inference
+
+gaussians:
+  n_gauss: 4000
+  mouth_frac: 0.25              # fraction of Gaussians on the mouth region
+  iters: 600
+  tile: 16                      # rasterizer tile size

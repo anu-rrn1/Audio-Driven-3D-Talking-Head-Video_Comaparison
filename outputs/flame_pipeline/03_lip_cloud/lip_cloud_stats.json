@@ -1,0 +1,12 @@
+{
+  "n_points": 512,
+  "n_inner_lip_ring_points": 32,
+  "cloud_radius_mm": 16.34534151703532,
+  "binding_nnz_per_point": 4.900390625,
+  "lap_region_vertex_err_mm": 0.3770115801636092,
+  "jaw_rig_only_baseline_err_mm": 6.558152110580702,
+  "chamfer_reconstructed_vs_target_mm": 0.05758319301797446,
+  "point_to_surface_mm": 0.8262242714077114,
+  "max_point_displacement_mm": 18.008011728551676,
+  "note": "points->mesh evaluated on synthetic FLAME expression + jaw motions of this identity"
+}

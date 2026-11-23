@@ -1,0 +1,29 @@
+{
+  "source": "FLAME-topology mesh",
+  "mesh": {
+    "n_vertices": 5023,
+    "n_faces": 9976,
+    "edge_len_mean": 0.005122926426370837,
+    "edge_len_std": 0.004901967785593718,
+    "surface_area": 0.18096679219906397
+  },
+  "mean_curvature": 66.69189557199834,
+  "beta_norm": 2.555678606033325,
+  "offset_rms_mm": 0.8319089879325444,
+  "offset_rms_before_smoothing_mm": 0.8322314846145972,
+  "refinement": {
+    "vertices_before": 5023,
+    "vertices_after": 5721,
+    "faces_before": 9976,
+    "faces_after": 11340,
+    "region_faces_before": 444,
+    "region_faces_after": 1680,
+    "boundary_loops_before": 2,
+    "boundary_loops_after": 2
+  },
+  "proxies": {
+    "cavity": 97,
+    "lower_teeth": 32,
+    "upper_teeth": 32
+  }
+}

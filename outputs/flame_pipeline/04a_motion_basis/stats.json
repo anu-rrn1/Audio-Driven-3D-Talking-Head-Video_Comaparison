@@ -1,0 +1,28 @@
+{
+  "frames": 123341,
+  "sequences": 478,
+  "k": 128,
+  "svd_frames": 21266,
+  "explained_variance_k": 0.9861488621237161,
+  "test_speakers": {
+    "zero_motion": {
+      "lip_max_mm": 6.847247947007418,
+      "lip_max_p95_mm": 13.500508060678822
+    },
+    "flame_expr100_ls": {
+      "vertex_mm": 0.44781051110476255,
+      "lip_max_mm": 3.3451144117861986,
+      "lip_max_p95_mm": 6.680415128357707
+    },
+    "pca128": {
+      "vertex_mm": 0.20748171664308757,
+      "lip_max_mm": 0.8073336794041097,
+      "lip_max_p95_mm": 1.494249439565464
+    }
+  },
+  "train_speakers_pca": {
+    "vertex_mm": 0.10511789150768891,
+    "lip_max_mm": 0.40840153815224767
+  },
+  "seconds": 3152.967185497284
+}

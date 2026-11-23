@@ -1,0 +1,23 @@
+{
+  "test": {
+    "lve_mm": 4.885585784912109,
+    "lve_zero_mm": 6.734046459197998,
+    "lve_meanpose_mm": 5.706100940704346,
+    "jaw_mode_corr": 0.654941462429263,
+    "frames": 9118
+  },
+  "val": {
+    "lve_mm": 3.859342098236084,
+    "lve_zero_mm": 5.231523513793945,
+    "lve_meanpose_mm": 4.743618488311768,
+    "jaw_mode_corr": 0.6902605245388491,
+    "frames": 10057
+  },
+  "best_epoch": 25,
+  "representation_floor_lve_mm": 0.81,
+  "pca_explained_variance": 0.9861488938331604,
+  "feature": "wav2vec2",
+  "epochs": 150,
+  "train_seconds": 160.34901595115662,
+  "note": "LVE vs PCA-128 reconstruction of the scans; unseen test speakers, neutral style"
+}

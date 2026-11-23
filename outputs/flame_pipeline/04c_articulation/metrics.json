@@ -1,0 +1,49 @@
+{
+  "c_bar": "training mean of PCA coefficients (model.c_mean)",
+  "chosen_on": "val speakers",
+  "g_amplitude_match": 1.62,
+  "g_min_mean_error": 1.1,
+  "test": {
+    "g_1": {
+      "lve_mm": 4.963953495025635,
+      "mve_mm": 3.1686861515045166,
+      "lipgap_std_ratio": 0.4706445634365082,
+      "lipgap_corr": 0.6527597804070501,
+      "lipgap_mae_mm": 3.6768651008605957
+    },
+    "g_amplitude_match": {
+      "lve_mm": 5.036893844604492,
+      "mve_mm": 3.2021429538726807,
+      "lipgap_std_ratio": 0.7640198469161987,
+      "lipgap_corr": 0.6527271918042352,
+      "lipgap_mae_mm": 3.5551788806915283
+    },
+    "g_min_mean_error": {
+      "lve_mm": 4.943589210510254,
+      "mve_mm": 3.1533114910125732,
+      "lipgap_std_ratio": 0.5179429054260254,
+      "lipgap_corr": 0.6527542960554893,
+      "lipgap_mae_mm": 3.630244016647339
+    }
+  },
+  "val": {
+    "g_1": {
+      "lve_mm": 3.8271796703338623,
+      "mve_mm": 2.609760046005249,
+      "lipgap_std_ratio": 0.6169399619102478,
+      "lipgap_corr": 0.6609445998708561,
+      "lipgap_mae_mm": 2.2276904582977295
+    },
+    "g_amplitude_match": {
+      "lve_mm": 4.057263374328613,
+      "mve_mm": 2.7571516036987305,
+      "lipgap_std_ratio": 1.0011522769927979,
+      "lipgap_corr": 0.6609339716084992,
+      "lipgap_mae_mm": 2.3001816272735596
+    }
+  },
+  "n_sequences": {
+    "val": 80,
+    "test": 79
+  }
+}

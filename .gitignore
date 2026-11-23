@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+
+# Licensed or large data (see README for how to obtain it)
+data/flame/*.pkl
+data/vocaset/
+data/vocaset_motion/
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Caches
+outputs/**/features_*.npz
+
+# Tool caches and large artifacts
+.ruff_cache/
+checkpoints/
+outputs/**/*.pt

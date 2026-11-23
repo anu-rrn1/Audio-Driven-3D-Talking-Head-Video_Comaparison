@@ -1,0 +1,5 @@
+{
+  "gain": 1.62,
+  "c_bar_from": "outputs/flame_pipeline/04b_audio2motion_v1_better_lip_error/audio2motion.pt",
+  "note": "c' = c_mean + gain * (c_pred - c_mean); fitted on val speakers"
+}

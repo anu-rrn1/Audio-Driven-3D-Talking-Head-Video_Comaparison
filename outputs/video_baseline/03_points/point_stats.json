@@ -1,0 +1,9 @@
+{
+  "n_points": 256,
+  "n_mesh_vertex_points": 150,
+  "n_surface_samples": 106,
+  "cloud_radius_px": 14.097502357676417,
+  "chamfer_closed_vs_open_px": 0.6414309721006619,
+  "chamfer_canonical_vs_open_px": 0.7706927182316721,
+  "max_point_displacement_px": 5.027883705766664
+}

@@ -1,0 +1,43 @@
+{
+  "test": {
+    "lve_mm": 4.932765960693359,
+    "lve_zero_mm": 6.734046459197998,
+    "lve_meanpose_mm": 5.706100940704346,
+    "jaw_mode_corr": 0.6768923657279465,
+    "jaw_amplitude_ratio": 0.540063738822937,
+    "frames": 9118
+  },
+  "val": {
+    "lve_mm": 3.86371111869812,
+    "lve_zero_mm": 5.231523513793945,
+    "lve_meanpose_mm": 4.743618488311768,
+    "jaw_mode_corr": 0.6990083411134528,
+    "jaw_amplitude_ratio": 0.7922123670578003,
+    "frames": 10057
+  },
+  "best_epoch": 19,
+  "representation_floor_lve_mm": 0.81,
+  "pca_explained_variance": 0.9861488938331604,
+  "feature": "wav2vec2",
+  "epochs": 60,
+  "train_seconds": 72.80990028381348,
+  "args": {
+    "data": "/kaggle/input/datasets/nanuradhar/tiny-pointtalk-04b-dataset/vocaset_motion.npz",
+    "out": "/kaggle/working/04b_v2",
+    "feature": "wav2vec2",
+    "epochs": 60,
+    "bs": 16,
+    "lr": 0.0003,
+    "d": 256,
+    "layers": 4,
+    "dropout": 0.3,
+    "wd": 0.05,
+    "w_amp": 1.0,
+    "speeds": "1.0,0.9,1.1",
+    "time_mask": 2,
+    "neutral_p": 0.15,
+    "quick": false,
+    "seed": 0
+  },
+  "note": "LVE vs PCA-128 reconstruction of the scans; unseen test speakers, neutral style"
+}

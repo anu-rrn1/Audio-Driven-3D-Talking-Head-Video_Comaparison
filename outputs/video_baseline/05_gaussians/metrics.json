@@ -1,0 +1,9 @@
+{
+  "val_psnr_init": 20.233220229725717,
+  "val_ssim_init": 0.8109609484672546,
+  "val_psnr_fitted": 38.33877999181256,
+  "val_ssim_fitted": 0.9950634241104126,
+  "n_gaussians": 4000,
+  "iterations": 600,
+  "note": "held-out frames rendered with their tracked GT mesh"
+}
