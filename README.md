@@ -103,3 +103,10 @@ Each step writes its figures and metrics to `outputs/`.
 - The audio model is trained on 8 VOCASET speakers and under-articulates on unseen speakers.
 - Rendering runs on the CPU at 256 × 256 pixels (about 1 s per frame).
 - The video baseline result in `outputs/video_baseline/` comes from the synthetic cartoon video.
+
+## References
+
+[1] Y. Xie, T. Feng, X. Zhang, X. Luo, Z. Guo, W. Yu, H. Chang, F. Ma and F. R. Yu.
+    *PointTalk: Audio-Driven Dynamic Lip Point Cloud for 3D Gaussian-based Talking Head
+    Synthesis.* Proceedings of the AAAI Conference on Artificial Intelligence, 39(8),
+    8753-8761, 2025. [arXiv:2412.08504](https://arxiv.org/abs/2412.08504)
